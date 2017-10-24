@@ -1,7 +1,5 @@
 <p></p>
 <p></p>
-<p></p>
-<p></p>
 
 <button type="button" class="btn btn-social btn-facebook" (click)="signIn('facebook')">
     <span class="fa fa-facebook"></span> Sign in with Facebook
@@ -13,13 +11,3 @@
 
 <p></p>
 <p></p>
-
-<div *ngIf="loggedIn">
-    <span>Name: </span>{{user.name}} <br>
-    <span>Email: </span>{{user.email}}<br>
-    <span>First Name: </span>{{user.firstName}}<br>
-    <span>Last Name: </span>{{user.lastName}}<br>
-    <span>ID: </span>{{user.token}}<br>
-    <img src="{{user.photoUrl}}" alt="">
-
-</div>

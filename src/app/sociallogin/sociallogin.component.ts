@@ -24,9 +24,6 @@ export class SocialloginComponent implements OnInit {
     });
   }
 
-  signOut(provider){
-    this.service.signOut();
-  }
 
   ngOnInit() {
 
