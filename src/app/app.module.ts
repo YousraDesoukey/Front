@@ -5,10 +5,13 @@ import { RouterModule } from '@angular/router';
 import { RtServiceService } from './rt-service.service';
 import { AppComponent } from './app.component';
 import { SocialloginComponent } from './sociallogin/sociallogin.component';
-
-import { Angular2SocialLoginModule } from "angular2-social-login";
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+//pachange used by angular to login using Fb and google
+import { Angular2SocialLoginModule } from "angular2-social-login";
+
+
+//providerINfo //get them from developers
 let providers = {
     "google": {
       "clientId": "1044068226622-b3kfj2vb5qkslmo9s1nj8au9hcbo3r02.apps.googleusercontent.com"
@@ -39,4 +42,6 @@ let providers = {
 })
 
 export class AppModule { }
+
+//used to load acripts for social login
 Angular2SocialLoginModule.loadProvidersScripts(providers);
