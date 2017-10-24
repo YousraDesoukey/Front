@@ -28,6 +28,17 @@ export class RtServiceService {
     return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
   }
 
+  //same as the above, we can use one function if the link of post is gonna be the same
+  //body would be different tht the bosy of social login
+  emailLogin(body){
+    return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
+  }
+
+  //link should be different when Signing up 
+  emailSignUp(body){
+    return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
+  }
+
   //signOut function to signOut
   signOut(){
     this.removeToken();
