@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http'
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 import { RtServiceService } from './rt-service.service';
 import { AppComponent } from './app.component';
 import { SocialloginComponent } from './sociallogin/sociallogin.component';
@@ -27,7 +28,11 @@ let providers = {
   imports: [
     BrowserModule,
     Angular2SocialLoginModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([ 
+      {path:'',component: SocialloginComponent},// empty string: defult url 
+      {path:'dashboard',component:DashboardComponent}
+      ])
   ],
   providers: [RtServiceService],
   bootstrap: [AppComponent]
