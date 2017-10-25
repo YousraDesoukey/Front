@@ -16,7 +16,6 @@ import {HttpClientModule} from '@angular/common/http';
 //pachange used by angular to login using Fb and google
 import { Angular2SocialLoginModule } from "angular2-social-login";
 
-
 //providerINfo //get them from developers
 let providers = {
     "google": {
@@ -43,14 +42,14 @@ let providers = {
     Angular2SocialLoginModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([ ,// empty string: defult url 
+    RouterModule.forRoot([// empty string: defult url 
       {path:'dashboard',component:DashboardComponent},
       { path:'login' , component:LoginComponent},
       { path:'signup' , component:SignupComponent},
       { path:'home' , component:HomeComponent},
       { path:'forgetpass' , component:ForgetpassComponent},
       { path:'**' , component:HomeComponent},
-      { path:'' , component:HomeComponent},
+      { path:'' , component:HomeComponent}
       ])
   ],
   providers: [RtServiceService],
@@ -59,5 +58,5 @@ let providers = {
 
 export class AppModule { }
 
-//used to load acripts for social login
+// // //used to load acripts for social login
 Angular2SocialLoginModule.loadProvidersScripts(providers);

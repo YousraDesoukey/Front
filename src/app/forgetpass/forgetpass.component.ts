@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RtServiceService } from '../rt-service.service';
 
 @Component({
   selector: 'app-forgetpass',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgetpassComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: RtServiceService) { }
 
   ngOnInit() {
   }
+
+  submitForm(data) {
+    this.service.forgetPassword(data.value).subscribe(res => {
+  })
+}
 
 }

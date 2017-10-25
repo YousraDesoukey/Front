@@ -13,7 +13,7 @@ export class SocialloginComponent implements OnInit {
   constructor(public service: RtServiceService, public router:Router){ }
 
   //signIn function call by the button 
-  signIn(provider){
+  socialSignIn(provider){
     this.service.socialSignIn(provider).subscribe(res => {
       res.subscribe(res => {
         //Argument res is the respond returning from the post which should contain the token if everything is okay

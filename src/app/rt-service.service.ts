@@ -24,7 +24,7 @@ export class RtServiceService {
   }
 
   //post function for social login to send the email, provider and token
-  socialLoginPost(body){
+  private socialLoginPost(body){
     return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
   }
 
@@ -42,8 +42,7 @@ export class RtServiceService {
   // function if you forget the password
   //body should contain the email
   //link should be special for forgetting the password
-  forgetPassword(body){
-    
+  forgetPassword(body){  
     return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
   }
 

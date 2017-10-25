@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServicesService } from './services.service';
+import { RtServiceService } from './rt-service.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
