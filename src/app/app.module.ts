@@ -4,8 +4,14 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { RtServiceService } from './rt-service.service';
 import { AppComponent } from './app.component';
-import { SocialloginComponent } from './sociallogin/sociallogin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
+import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import {HttpClientModule} from '@angular/common/http';
 
 //pachange used by angular to login using Fb and google
 import { Angular2SocialLoginModule } from "angular2-social-login";
@@ -25,16 +31,26 @@ let providers = {
 @NgModule({
   declarations: [
     AppComponent,
-    SocialloginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    ForgetpassComponent
   ],
   imports: [
     BrowserModule,
     Angular2SocialLoginModule,
+    FormsModule,
     HttpModule,
-    RouterModule.forRoot([ 
-      {path:'',component: SocialloginComponent},// empty string: defult url 
-      {path:'dashboard',component:DashboardComponent}
+    RouterModule.forRoot([ ,// empty string: defult url 
+      {path:'dashboard',component:DashboardComponent},
+      { path:'login' , component:LoginComponent},
+      { path:'signup' , component:SignupComponent},
+      { path:'home' , component:HomeComponent},
+      { path:'forgetpass' , component:ForgetpassComponent},
+      { path:'**' , component:HomeComponent},
+      { path:'' , component:HomeComponent},
       ])
   ],
   providers: [RtServiceService],

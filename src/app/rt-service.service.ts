@@ -43,6 +43,7 @@ export class RtServiceService {
   //body should contain the email
   //link should be special for forgetting the password
   forgetPassword(body){
+    
     return this.http.post("http://localhost:3000/profile",body).map(res => res.json());
   }
 
