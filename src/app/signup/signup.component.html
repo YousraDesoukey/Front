@@ -5,25 +5,26 @@
 <!-- input email -->
   <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required placeholder="Email" #email="ngModel">
  <!-- email validations -->
-  	<div  class="alert alert-danger text-center" *ngIf="!email.valid && email.touched">
+    <div  class="alert alert-danger text-center" *ngIf="!email.valid && email.touched">
         <div *ngIf="email.errors.required">Email is required!</div>
         <div *ngIf="email.errors.pattern">Email is not valid</div>
     </div>
 
 
 <!-- input password -->
-  <input type="password" name="password" ngModel #password="ngModel" required class="form-control"  placeholder="Password" minlength="5">
+  <input type="password" name="password" ngModel #password="ngModel" required class="form-control"  placeholder="Password" minlength="5" reverse="true">
   <!-- password validations -->
-  	<div  class="alert alert-danger text-center" *ngIf="!password.valid && password.touched">
+    <div  class="alert alert-danger text-center" *ngIf="!password.valid && password.touched">
         <div *ngIf="password.errors.required">password is required!</div>
         <div *ngIf="password.errors.minlength">can't be less than 5 characters</div>
     </div>
 
 <!-- input confirm password -->
-  <input type="password" name="confirmPassword" ngModel #confirmPassword="ngModel" required validateEqualto="password" class="form-control"  placeholder="Confirm Password" minlength="5">
+  <input type="password" name="confirmPassword" ngModel #confirmPassword="ngModel" required validateEqual="password" class="form-control"  placeholder="Confirm Password" minlength="5">
   <div class="alert alert-danger text-center" *ngIf="!confirmPassword.valid && confirmPassword.touched">
         <div *ngIf="confirmPassword.errors.required">confirm password is required!</div>
         <div *ngIf="confirmPassword.errors.minlength">can't be less than 5 characters</div>
+        <div *ngIf="!confirmPassword.valid">password mismatch</div>
 
     </div>
 

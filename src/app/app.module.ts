@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import {HttpClientModule} from '@angular/common/http';
 
+import { EqualValidator } from './equal_validator.directive';  // import validator
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ForgetpassComponent
+    ForgetpassComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,
