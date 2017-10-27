@@ -12,8 +12,24 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
 import {HttpClientModule} from '@angular/common/http';
+import { DashboardComponent }from './dashboard/dashboard.component';
 
-import { EqualValidator } from './equal_validator.directive';  // import validator
+
+import { Angular2SocialLoginModule } from "angular2-social-login";
+
+import { EqualValidator } from './equal_validator.directive';
+import { ConfirmpassComponent } from './confirmpass/confirmpass.component';
+import { SocialloginComponent } from './sociallogin/sociallogin.component';  // import validator
+
+let providers = {
+    "google": {
+      "clientId": "1044068226622-b3kfj2vb5qkslmo9s1nj8au9hcbo3r02.apps.googleusercontent.com"
+    },
+    "facebook": {
+      "clientId": "2065091893721004",
+      "apiVersion": "v2.10"
+    }
+  };
 
 
 @NgModule({
@@ -24,20 +40,26 @@ import { EqualValidator } from './equal_validator.directive';  // import validat
     SignupComponent,
     HomeComponent,
     ForgetpassComponent,
-    EqualValidator
+    EqualValidator,
+    ConfirmpassComponent,
+    SocialloginComponent,
+    DashboardComponent
+
   ],
   imports: [
     BrowserModule,
+    Angular2SocialLoginModule,
     HttpClientModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
+        {path:'dashboard',component:DashboardComponent},
         { path:'login' , component:LoginComponent},
         { path:'signup' , component:SignupComponent},
         { path:'home' , component:HomeComponent},
         { path:'forgetpass' , component:ForgetpassComponent},
-        { path:'**' , component:HomeComponent},
         { path:'' , component:HomeComponent},
+        { path:'confirmpass' , component:ConfirmpassComponent}
 
 
       ])
@@ -46,3 +68,5 @@ import { EqualValidator } from './equal_validator.directive';  // import validat
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+Angular2SocialLoginModule.loadProvidersScripts(providers);

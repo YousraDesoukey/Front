@@ -5,6 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SocialloginComponent } from './sociallogin/sociallogin.component';
+
 
 
 @Component({

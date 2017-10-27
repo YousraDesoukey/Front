@@ -5,7 +5,7 @@
 <!-- input email -->
   <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required placeholder="Email" #email="ngModel">
  <!-- email validations -->
-  	<div  class="alert alert-danger text-center" *ngIf="!email.valid && email.touched">
+    <div  class="alert alert-danger text-center" *ngIf="!email.valid && email.touched">
         <div *ngIf="email.errors.required">Email is required!</div>
         <div *ngIf="email.errors.pattern">Email is not valid</div>
     </div>
@@ -16,10 +16,10 @@
 
 
 <!-- when user click on the button div will appear -->
-	<div *ngIf="send">
-    	<div class="alert alert-success">
-     	 <div>Password has been sent successfully .. please check your email</div>
-		</div>
+  <div *ngIf="send">
+      <div class="alert alert-success">
+       <div>Password has been sent successfully .. please check your email</div>
+    </div>
 
 </div>
 
