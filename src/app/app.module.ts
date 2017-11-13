@@ -20,6 +20,8 @@ import { GoogleLoginComponent } from './social/google-login/google-login.compone
 //services
 import { RtServiceService } from './rt-service.service';
 import { AuthGuardService } from './auth-guard.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { EqualValidatorDirective } from './equal-validator.directive';
 
 
 
@@ -33,7 +35,9 @@ import { AuthGuardService } from './auth-guard.service';
     HomeComponent,
     ForgetpassComponent,
     FbLoginComponent,
-    GoogleLoginComponent
+    GoogleLoginComponent,
+    ChangePasswordComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,7 @@ import { AuthGuardService } from './auth-guard.service';
       { path:'signup' , component:SignupComponent},
       { path:'home' , component:HomeComponent},
       { path:'forgetpass' , component:ForgetpassComponent},
+      { path:'new/password/:token' , component:ChangePasswordComponent},
       { path:'**' , redirectTo:'home'},
       { path:'' , redirectTo:'home', pathMatch:'full'}
       ])
