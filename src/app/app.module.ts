@@ -1,31 +1,27 @@
+//modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { RtServiceService } from './rt-service.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+//components
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
-import {HttpClientModule} from '@angular/common/http';
+import { FbLoginComponent } from './social/fb-login/fb-login.component';
+import { GoogleLoginComponent } from './social/google-login/google-login.component';
 
-//pachange used by angular to login using Fb and google
-import { Angular2SocialLoginModule } from "angular2-social-login";
+//services
+import { RtServiceService } from './rt-service.service';
+import { AuthGuardService } from './auth-guard.service';
 
-//providerINfo //get them from developers
-let providers = {
-    "google": {
-      "clientId": "1044068226622-b3kfj2vb5qkslmo9s1nj8au9hcbo3r02.apps.googleusercontent.com"
-    },
-    "facebook": {
-      "clientId": "2065091893721004",
-      "apiVersion": "v2.10"
-    }
-  };
+
 
 @NgModule({
   declarations: [
@@ -35,28 +31,26 @@ let providers = {
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ForgetpassComponent
+    ForgetpassComponent,
+    FbLoginComponent,
+    GoogleLoginComponent
   ],
   imports: [
     BrowserModule,
-    Angular2SocialLoginModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot([// empty string: defult url 
-      {path:'dashboard',component:DashboardComponent},
+      {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuardService]},
       { path:'login' , component:LoginComponent},
       { path:'signup' , component:SignupComponent},
       { path:'home' , component:HomeComponent},
       { path:'forgetpass' , component:ForgetpassComponent},
-      { path:'**' , component:HomeComponent},
-      { path:'' , component:HomeComponent}
+      { path:'**' , redirectTo:'home'},
+      { path:'' , redirectTo:'home', pathMatch:'full'}
       ])
   ],
-  providers: [RtServiceService],
+  providers: [RtServiceService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
-
-// // //used to load acripts for social login
-Angular2SocialLoginModule.loadProvidersScripts(providers);

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from "angular2-social-login"; //used by social login
 import { Http } from '@angular/http'
 import 'rxjs/Rx';
 
@@ -8,21 +7,18 @@ import 'rxjs/Rx';
 @Injectable()
 export class RtServiceService {
 
-  constructor(public _auth: AuthService, public http:Http) { }
+  constructor(public http:Http) { }
 
   //function used to login using Facebook or Google
-  //Arg ==> provider is a string representing the provider "facebook" or "google"
-  socialSignIn(provider){
-    //Args => data is a json string returned from fb or google containing email and token and other info
-    return this._auth.login(provider).map(data => {
-      //creating body for the post request containing the email, provider and token
-      let body = {"email": data["email"] ,"provider":data["provider"],"token":data["token"]}
-      console.log(body)
-      //calling the post function
-      return this.http.post("http://127.0.0.1:8000/usersocial/",body).map(res => res.json());
-    });
+  //Arg ==> json containing the data of social user
+  socialSignIn(body){
+    //console.log(body)
+    //calling the post function
+    return this.http.post("http://127.0.0.1:8000/usersocial/",body).map(res => res.json());
   }
 
+
+  /// to this point this function is of no use
   //post function for social login to send the email, provider and token
   private socialLoginPost(body){
     // console.log("works2!")
@@ -65,6 +61,7 @@ export class RtServiceService {
 
   //function to check if you are logged or not
   isLoggedIn() {
+    //we have to check wether the token is valid or not
     if(localStorage.getItem('token')) {
       return true;
     } else {

@@ -31,14 +31,9 @@
 
     <!-- sign up button -->
     <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign up</button>
-    <!-- facebook sign up button -->
-    <p></p>
-    <button type="button" class="btn btn-social btn-facebook" (click)="socialSignIn('facebook')">
-        <span class="fa fa-facebook"></span> Sign up with Facebook
-    </button>
-    <!-- Google sign up button -->
-    <button type="button" class="btn btn-social btn-google" (click)="socialSignIn('google')">
-        <span class="fa fa-facebook"></span> Sign up with Google
-    </button>
+
+
+    <app-fb-login></app-fb-login>
+    <app-google-login></app-google-login>
 
 </form>
