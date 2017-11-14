@@ -11,37 +11,37 @@ export class RtServiceService {
 
   //function used to login using Facebook or Google
   //Arg ==> json containing the data of social user
-  socialSignIn(body){
+  socialSignUp(body){
     //console.log(body)
     //calling the post function
-    return this.http.post("http://127.0.0.1:8000/usersocial/",body).map(res => res.json());
+    return this.http.post("http://127.0.0.1:8000/usersocial/", body).map(res => res.json(), err => err.json());
   }
 
 
   /// to this point this function is of no use
   //post function for social login to send the email, provider and token
-  private socialLoginPost(body){
+  socialSignIn(body){
     // console.log("works2!")
     console.log(body)
-    return this.http.post("http://http://127.0.0.1:8000/logins/",body).map(res => res.json());
+    return this.http.post("http://127.0.0.1:8000/logins/", body).map(res => res.json(), err => err.json());
   }
 
   //same as the above, we can use one function if the link of post is gonna be the same
   //body would be different tht the bosy of social login
   emailLogin(body){
-    return this.http.post("http://127.0.0.1:8000/login/",body).map(res => res.json());
+    return this.http.post("http://127.0.0.1:8000/login/",body).map(res => res.json(), err => err.json());
   }
 
   //link should be different when Signing up
   emailSignUp(body){
-    return this.http.post("http://127.0.0.1:8000/users/",body).map(res => res.json());
+    return this.http.post("http://127.0.0.1:8000/users/",body).map(res => res.json(), err => err.json());
   }
 
   // function if you forget the password
   //body should contain the email
   //link should be special for forgetting the password
   forgetPassword(body){
-    return this.http.post("http://127.0.0.1:8000/forgetPassword/",body).map(res => res.json());
+    return this.http.post("http://127.0.0.1:8000/forgetPassword/",body).map(res => res.json(), err => err.json());
   }
 
   //signOut function to signOut

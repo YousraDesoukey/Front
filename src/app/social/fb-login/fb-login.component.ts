@@ -47,10 +47,11 @@ export class FbLoginComponent implements OnInit {
           let resp = res.json();
 
           let profileJson = {
-            "ID": resp.id, 
-            "Name": resp.name, 
-            "Image URL": resp.picture.data.url, 
-            "Email": resp.email, "provider":"facebook",
+            "id": resp.id, 
+            "name": resp.name, 
+            "image URL": resp.picture.data.url, 
+            "email": resp.email, 
+            "provider":"facebook",
             "token": accessToken
           };
           

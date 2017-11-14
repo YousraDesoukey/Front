@@ -38,10 +38,10 @@ export class GoogleLoginComponent implements AfterViewInit {
         (googleUser) => {
           let profile = googleUser.getBasicProfile();
           let profileJson = {
-          "ID": profile.getId(), 
-          "Name": profile.getName(), 
-          "Image URL": profile.getImageUrl() + '?sz=600', 
-          "Email": profile.getEmail(), 
+          "id": profile.getId(), 
+          "name": profile.getName(), 
+          "image URL": profile.getImageUrl() + '?sz=600', 
+          "email": profile.getEmail(), 
           "provider":"google", 
           "token":googleUser.getAuthResponse().id_token
         };
