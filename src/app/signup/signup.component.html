@@ -33,12 +33,7 @@
     <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Sign up</button>
 
 
-    <button type="button" class="btn btn-social btn-facebook" (click)="fbLogin()">
-        <span class="fa fa-facebook"></span> Sign in with Facebook
-    </button>
-
-    <button type="button" id="google" class="btn btn-social btn-google">
-        <span class="fa fa-google"></span> Sign in with Google
-    </button>
+    <app-fb [signUpIn]="1"></app-fb>
+    <app-google [signUpIn]="1"></app-google>
 
 </form>

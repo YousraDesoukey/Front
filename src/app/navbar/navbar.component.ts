@@ -20,7 +20,10 @@ export class NavbarComponent implements OnInit {
 
   // to remove token when user is logged out
   logout() {
+    //remove token
     this.all.removeToken();
+
+    //check if logged in or not
     this.loggedIn = this.all.isLoggedIn();
   }
 

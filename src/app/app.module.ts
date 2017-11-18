@@ -14,14 +14,14 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ForgetpassComponent } from './forgetpass/forgetpass.component';
-import { FbLoginComponent } from './social/fb-login/fb-login.component';
-import { GoogleLoginComponent } from './social/google-login/google-login.component';
 
 //services
 import { RtServiceService } from './rt-service.service';
 import { AuthGuardService } from './auth-guard.service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { EqualValidatorDirective } from './equal-validator.directive';
+import { FbComponent } from './social-buttons/fb/fb.component';
+import { GoogleComponent } from './social-buttons/google/google.component';
 
 
 
@@ -34,22 +34,22 @@ import { EqualValidatorDirective } from './equal-validator.directive';
     SignupComponent,
     HomeComponent,
     ForgetpassComponent,
-    FbLoginComponent,
-    GoogleLoginComponent,
     ChangePasswordComponent,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    FbComponent,
+    GoogleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([// empty string: defult url 
+    RouterModule.forRoot([
       {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuardService]},
       { path:'login' , component:LoginComponent},
       { path:'signup' , component:SignupComponent},
       { path:'home' , component:HomeComponent},
-      { path:'forgetpass' , component:ForgetpassComponent},
-      { path:'new/password/:token' , component:ChangePasswordComponent},
+      { path:'forgetPassword' , component:ForgetpassComponent},
+      { path:'changePassword/:token' , component:ChangePasswordComponent},
       { path:'**' , redirectTo:'home'},
       { path:'' , redirectTo:'home', pathMatch:'full'}
       ])

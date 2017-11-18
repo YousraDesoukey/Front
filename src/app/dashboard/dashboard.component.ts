@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   //signOut function to remove the token from the localstorage and navigate back to the login page
   signOut(){
     this.service.signOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
 }

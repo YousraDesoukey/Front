@@ -14,7 +14,7 @@ export class RtServiceService {
   socialSignUp(body){
     //console.log(body)
     //calling the post function
-    return this.http.post("http://127.0.0.1:8000/usersocial/", body).map(res => res.json(), err => err.json());
+    return this.http.post("http://127.0.0.1:8000/socialSignUp/", body).map(res => res.json(), err => err.json());
   }
 
 
@@ -22,19 +22,19 @@ export class RtServiceService {
   //post function for social login to send the email, provider and token
   socialSignIn(body){
     // console.log("works2!")
-    console.log(body)
-    return this.http.post("http://127.0.0.1:8000/logins/", body).map(res => res.json(), err => err.json());
+    //console.log(body)
+    return this.http.post("http://127.0.0.1:8000/socialSignIn/", body).map(res => res.json(), err => err.json());
   }
 
   //same as the above, we can use one function if the link of post is gonna be the same
   //body would be different tht the bosy of social login
   emailLogin(body){
-    return this.http.post("http://127.0.0.1:8000/login/",body).map(res => res.json(), err => err.json());
+    return this.http.post("http://127.0.0.1:8000/emailSignIn/",body).map(res => res.json(), err => err.json());
   }
 
   //link should be different when Signing up
   emailSignUp(body){
-    return this.http.post("http://127.0.0.1:8000/users/",body).map(res => res.json(), err => err.json());
+    return this.http.post("http://127.0.0.1:8000/emailSignUp/",body).map(res => res.json(), err => err.json());
   }
 
   // function if you forget the password
@@ -42,6 +42,10 @@ export class RtServiceService {
   //link should be special for forgetting the password
   forgetPassword(body){
     return this.http.post("http://127.0.0.1:8000/forgetPassword/",body).map(res => res.json(), err => err.json());
+  }
+
+  changePassword(body){
+    return this.http.post("http://127.0.0.1:8000/changePassword/", body).map(res => res.json(), err => err.json());
   }
 
   //signOut function to signOut
